@@ -1,0 +1,1 @@
+# insomnia-plugin-hide-login
