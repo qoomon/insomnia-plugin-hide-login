@@ -1,0 +1,10 @@
+{
+  "name": "insomnia-plugin-hide-login",
+  "version": "1.0.0",
+  "insomnia": {
+    "name": "hide-login",
+    "displayName": "hide-login",
+    "description": "This plugin hides all the login related ui elements."
+  },
+  "main": "index.js"
+}
