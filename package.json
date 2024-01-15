@@ -1,10 +1,17 @@
 {
   "name": "insomnia-plugin-hide-login",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "This plugin hides all login-related UI elements to create a cleaner look for those who don't need or want to log in.",
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/qoomon/insomnia-plugin-hide-login#readme",
+  "repository": {
+    "url": "git+https://github.com/qoomon/insomnia-plugin-hide-login.git"
+  },
+  "main": "index.js",
+  "scripts": {},
   "insomnia": {
     "name": "hide-login",
     "displayName": "hide-login",
     "description": "This plugin hides all the login related ui elements."
-  },
-  "main": "index.js"
+  }
 }
