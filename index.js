@@ -1,21 +1,23 @@
-const styleId = 'hide-login-plugin'
-document.getElementById(styleId)?.remove()
-document.head.insertAdjacentHTML(
-    'beforeend',
-    `<style id="${styleId}">
-    #root > .app > div > .grid {
-        grid-template-columns: 0; /* hide login header */
-        grid-template-rows: 0 1fr 30px; /* hide organization navbar */
-    }
-    #root > .app > div > .grid .\\[grid-area\\:Statusbar\\] > div > div:last-child > button {
-        display: none; /* hide footer organizations sidebar button */
-    }
-    #root > .app > div > .grid .\\[grid-area\\:Statusbar\\] > button {
-      display: none; /* hide footer login button */
-    }
-    #sidebar > div > div:first-child > ol > li:first-child {
-        display: none; /* hide sidebar login button */
-    }
-</style>`
-)
+const BRAND_KEY = '__insomnia__plugin__brand__';
+const BRAND_VAL = 'insomnia-plugin-hide-login';
 
+const sheet = new CSSStyleSheet();
+      sheet[BRAND_KEY] = BRAND_VAL;
+      sheet.replaceSync(`
+          #root header div:has(
+              a[href='https://github.com/Kong/insomnia/stargazers'],
+              a[href='https://app.insomnia.rest/app/signup/']
+          ) > :is(button, a) {
+            display: none !important;
+          }
+      `);
+      
+requestAnimationFrame(function() {
+    const existing = 
+        document.adoptedStyleSheets?.filter(x => x[BRAND_KEY] !== BRAND_VAL) ?? [];
+        
+    document.adoptedStyleSheets = [
+      ...existing,
+      sheet
+    ];
+});
