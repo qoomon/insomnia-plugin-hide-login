@@ -7,4 +7,5 @@ This plugin hides all login-related UI elements to create a cleaner look for tho
 
 ## Development
 ### Release
-- npm release
+- Bump version on `package.json`
+- `npm publish`
